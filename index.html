@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Safari Theme Preview</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="An example of prefers-color-scheme that works on Safari Preview">
+    <meta name="keywords" content="Safari Preview, Safari, prefers-color-scheme, CSS">
+    <meta name="author" content="Seth Corker">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background-color: whitesmoke;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        height: 100vh;
+        box-sizing: border-box;
+        margin: 0;
+        width: 100vw;
+        align-items: center;
+        justify-items: baseline;
+        font-family: -apple-system, sans-serif;
+      }
+
+      .title {
+        color: midnightblue;
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 6em;
+        margin: 1rem 4rem;
+      }
+
+      .indicator {
+        border-color: midnightblue;
+        width: 5rem;
+        height: 5rem;
+      }
+
+      .indicator.left {
+        border-left-style: solid;
+        border-left-width: 0.5rem;
+      }
+
+      .indicator.top {
+        border-top-style: solid;
+        border-top-width: 0.5rem;
+      }
+
+      .indicator.right {
+        border-right-style: solid;
+        border-right-width: 0.5rem;
+      }
+
+      .indicator.bottom {
+        border-bottom-style: solid;
+        border-bottom-width: 0.5rem;
+      }
+
+      .indicator.top.left {
+        grid-column: 3;
+        grid-row: 3;
+        align-self: flex-start;
+      }
+
+      .indicator.bottom.right {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: flex-end;
+        justify-self: end;
+      }
+
+      .info {
+        color:lightslategray;
+        grid-column: 4;
+        grid-row: 2;
+        width: 90%;
+        font-size: 1.35em;
+        margin-left: -35%;
+      }
+
+      .highlight {
+        color:darkslateblue;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: midnightblue;
+        }
+
+        .title {
+          color: whitesmoke;
+        }
+
+        .indicator {
+          border-color: whitesmoke;
+        }
+
+        .info {
+          color:aliceblue;
+        }
+
+        .highlight {
+          color:coral;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Hello Theming</h1>
+    <div class="indicator right bottom"></div>
+    <div class="indicator top left"></div>
+    <aside class="info">
+      Using <code class="highlight">prefers-color-scheme</code> media query in <nobr>Safari Preview</nobr> to adapt the
+      page styling based on user's theme.
+    </aside>
+  </body>
+</html>
